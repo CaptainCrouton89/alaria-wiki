@@ -1,0 +1,56 @@
+{
+  "name": "wiki",
+  "version": "1.0.0",
+  "description": "A blank template to get started with Payload 3.0",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
+    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
+    "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
+    "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
+    "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
+    "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
+    "deploy": "npm ci && npm run build && npm start"
+  },
+  "dependencies": {
+    "@payloadcms/db-sqlite": "latest",
+    "@payloadcms/live-preview-react": "^3.7.0",
+    "@payloadcms/next": "latest",
+    "@payloadcms/payload-cloud": "latest",
+    "@payloadcms/richtext-lexical": "latest",
+    "cross-env": "^7.0.3",
+    "graphql": "^16.8.1",
+    "next": "15.1.0",
+    "payload": "latest",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "sharp": "0.32.6"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.2.0",
+    "@heroicons/react": "^2.2.0",
+    "@libsql/linux-x64-musl": "^0.5.0-pre.4",
+    "@tailwindcss/forms": "^0.5.9",
+    "@tailwindcss/typography": "^0.5.15",
+    "@types/node": "^22.5.4",
+    "@types/react": "19.0.1",
+    "@types/react-dom": "19.0.1",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.16.0",
+    "eslint-config-next": "15.1.0",
+    "postcss": "^8.4.49",
+    "prettier": "^3.4.2",
+    "react-markdown": "^9.0.1",
+    "remark-gfm": "^4.0.0",
+    "slugify": "^1.6.6",
+    "tailwindcss": "^3.4.16",
+    "typescript": "5.7.2"
+  },
+  "engines": {
+    "node": "^18.20.2 || >=20.9.0"
+  },
+  "packageManager": "pnpm@9.15.0+sha512.76e2379760a4328ec4415815bcd6628dee727af3779aaa4c914e3944156c4299921a89f976381ee107d41f12cfa4b66681ca9c718f0668fa0831ed4c6d8ba56c"
+}

@@ -1,0 +1,63 @@
+import Link from "next/link"
+import { getPayload } from 'payload'
+import config from '@payload-config'
+
+import Search from "@/components/Search"
+import Header from "@/components/Header"
+import Toolbar from "@/components/Toolbar"
+
+import { ArrowUturnLeftIcon } from "@heroicons/react/20/solid"
+
+export const dynamic = 'force-dynamic'
+
+export default async function Page({ params }: { params: Promise<{ page: string, category: string }> }) {
+
+    const { category: categorySlug } = await params
+
+    const payload = await getPayload({ config })
+
+    const pages = await payload.find({ collection: "pages", pagination: false, where: { "category.slug": { equals: categorySlug } } })
+    const category = pages.docs[0]?.category as { title: string, slug: string }
+
+    return (
+        <>
+            <Header breadcrumb={category?.title ?? categorySlug} />
+
+            <Search />
+
+            <Toolbar />
+
+            <div className="flex flex-col gap-y-4 mt-16 mx-8 sm:mx-16">
+                <b>
+                    Explore
+                </b>
+                <ul className="grid gap-4 md:grid-cols-2">
+                    {
+                        pages.docs.map(page => (
+                            <li key={page.id}>
+                                <Link className="flex flex-col gap-y-2 rounded bg-gradient-to-tr from-gray-50 to-white border p-4 shadow-sm hover:cursor-pointer hover:to-gray-100"
+                                    href={categorySlug + '/' + page?.slug}
+                                >
+                                    <p>
+                                        {page?.title}
+                                    </p>
+                                    <p className="text-xs text-neutral">
+                                        {page?.subtitle}
+                                    </p>
+                                </Link>
+                            </li>
+                        ))
+                    }
+                </ul>
+
+                <div className="mx-auto mt-16">
+                    <Link href='/'>
+                        <button className="bg-black rounded-full p-3 text-white items-center hover:scale-105 transition-transform duration-200">
+                            <ArrowUturnLeftIcon className="text-white h-5 w-5" />
+                        </button>
+                    </Link>
+                </div>
+            </div>
+        </>
+    )
+}
