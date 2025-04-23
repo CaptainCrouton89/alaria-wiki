@@ -44,7 +44,6 @@ export default buildConfig({
     client: {
       url: 'libsql://alaria-captaincrouton89.aws-us-east-1.turso.io',
       authToken: process.env.TURSO_AUTH_TOKEN,
-      // url: 'file:./database/wiki.db',
     },
   }),
   sharp,

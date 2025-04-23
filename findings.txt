@@ -1,0 +1,52 @@
+# Alaria Wiki API Testing Findings
+
+## Authentication
+Successfully authenticated to the Alaria Wiki API using:
+- Email: user@api.com
+- Password: wisdom12
+- Authentication endpoint: https://alaria-wiki.fly.dev/api/users/login
+
+Authentication is handled through HTTP cookies which are passed in subsequent requests.
+
+## API Endpoints Tested
+
+### GET /api/pages
+- URL: https://alaria-wiki.fly.dev/api/pages?depth=0&fallback-locale=null
+- Method: GET
+- Authentication: Required (cookie-based)
+- Response: JSON list of pages with metadata (pagination, etc.)
+
+### POST /api/pages
+- URL: https://alaria-wiki.fly.dev/api/pages
+- Method: POST
+- Authentication: Required (cookie-based)
+- Content-Type: application/json
+- Data structure:
+  ```json
+  {
+    "title": "Getting Started",
+    "subtitle": "Introduction to Alaria", 
+    "category": 9,
+    "markdown": "# Welcome to Alaria\n\nThis is a getting started guide that will help you understand the basics of the system."
+  }
+  ```
+- Response: Confirmation with the created document details
+
+## Created Content
+Successfully created a new page:
+- Title: "Getting Started"
+- Subtitle: "Introduction to Alaria"
+- Category: 9 (Items & Equipment)
+- Content: Basic markdown welcome text
+- System-generated fields:
+  - ID: 1
+  - Slug: "getting-started" (auto-generated from title)
+  - createdAt: "2025-04-23T00:06:45.027Z"
+  - updatedAt: "2025-04-23T00:06:45.027Z"
+
+## System Architecture
+The API appears to be built using PayloadCMS, which provides:
+- Authentication system with JWT tokens and cookies
+- Collection-based data structure
+- Automatic slug generation
+- REST API with standard CRUD operations
