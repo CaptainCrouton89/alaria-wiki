@@ -1,0 +1,41 @@
+---
+description: ALWAYS include this when making frontend components
+globs: 
+alwaysApply: false
+---
+# Styling Guidelines
+
+This project uses Tailwind CSS for styling with a custom color palette and responsive design approach.
+
+## Color Palette
+
+The custom color palette is defined in [tailwind.config.ts](mdc:tailwind.config.ts):
+
+- **Primary**: Teal/blue-green (#11999E) - Used for primary actions and key UI elements
+- **Secondary**: Teal/green (#119E7F) - Used for secondary actions and accents
+- **Accent**: Dark teal (#092A2C) - Used for contrast and highlights
+
+## Component Styling Patterns
+
+- **Container**: The main content is wrapped in a container with `container mx-auto`
+- **Layout**: Flex column with min-height screen `flex flex-col min-h-screen`
+- **Cards/Panels**: Use subtle gradients and shadows `bg-gradient-to-tr from-gray-50 to-white border shadow-sm`
+- **Hover States**: Subtle background changes `hover:to-gray-100` or opacity changes
+
+## Responsive Design
+
+- Mobile-first approach with breakpoints:
+  - `sm`: 640px and above
+  - `md`: 768px and above
+  - `lg`: 1024px and above
+
+## Typography
+
+- Font: Inter (Google Font)
+- Text sizes follow Tailwind's scale (xs, sm, base, lg, xl, 2xl)
+- Headings use font-semibold
+
+## Background
+
+- Uses SVG patterns for subtle background texture
+- Main content has white/light gray background for readability

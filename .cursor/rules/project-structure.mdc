@@ -1,0 +1,37 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Project Structure
+
+This project is a wiki application built with Next.js and PayloadCMS, which provides headless CMS functionality.
+
+## Directory Structure
+
+- **src/app**: Contains Next.js app router pages and layouts
+  - **(home)**: Main site pages
+  - **(payload)**: Admin dashboard for PayloadCMS
+
+- **src/components**: Reusable UI components
+  - [Header.tsx](mdc:src/components/Header.tsx): Site header with navigation
+  - [Footer.tsx](mdc:src/components/Footer.tsx): Site footer
+  - [Search.tsx](mdc:src/components/Search.tsx): Search functionality
+  - [Toolbar.tsx](mdc:src/components/Toolbar.tsx): UI controls
+
+- **src/collections**: PayloadCMS collection definitions for content types
+
+- **src/styles**: Global styles and Tailwind CSS configuration
+  - [globals.css](mdc:src/styles/globals.css): Global CSS styles
+
+- **src/helpers**: Utility functions and helpers
+
+## Configuration Files
+
+- [payload.config.ts](mdc:src/payload.config.ts): PayloadCMS configuration
+- [tailwind.config.ts](mdc:tailwind.config.ts): Tailwind CSS configuration with custom colors
+- [package.json](mdc:package.json): Project dependencies and scripts
+
+## Database
+
+The application uses SQLite database through PayloadCMS's SQLite adapter.

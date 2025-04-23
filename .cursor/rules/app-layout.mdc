@@ -1,0 +1,36 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# App Layout Structure
+
+This wiki application is built with Next.js and uses PayloadCMS for content management. The layout follows a clean, minimalist design with a focus on content.
+
+## Key Layout Components
+
+- **Root Layout**: The main layout wrapper is in [src/app/(home)/layout.tsx](mdc:src/app/(home)/layout.tsx), which sets up the page structure with a background pattern and container.
+
+- **Header**: The site header is defined in [src/components/Header.tsx](mdc:src/components/Header.tsx) and displays the site name, subtitle, and optional breadcrumb.
+
+- **Footer**: The minimal footer is in [src/components/Footer.tsx](mdc:src/components/Footer.tsx) and shows a disclaimer text.
+
+- **Search**: Search functionality is implemented in [src/components/Search.tsx](mdc:src/components/Search.tsx).
+
+- **Toolbar**: Additional UI controls are in [src/components/Toolbar.tsx](mdc:src/components/Toolbar.tsx).
+
+## Page Structure
+
+- **Home Page**: [src/app/(home)/page.tsx](mdc:src/app/(home)/page.tsx) shows categories in a grid layout.
+
+- **Category Pages**: Located in [src/app/(home)/[category]/page.tsx](mdc:src/app/(home)/[category]/page.tsx).
+
+## Styling
+
+The app uses Tailwind CSS with custom colors defined in [tailwind.config.ts](mdc:tailwind.config.ts). The color scheme includes:
+
+- Primary: Teal/blue-green (#11999E)
+- Secondary: Teal/green (#119E7F)
+- Accent: Dark teal (#092A2C)
+
+The layout is responsive with mobile-first design principles.
