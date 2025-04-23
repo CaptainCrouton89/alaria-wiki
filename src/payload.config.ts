@@ -1,16 +1,16 @@
+import { sqliteAdapter } from '@payloadcms/db-sqlite'
+import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
+import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
+import { buildConfig } from 'payload'
 import sharp from 'sharp'
 import { fileURLToPath } from 'url'
-import { buildConfig } from 'payload'
-import { sqliteAdapter } from '@payloadcms/db-sqlite'
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
-import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
 
-import { migrations } from './migrations'
-import { Users } from './collections/Users'
+import { Categories } from './collections/Categories'
 import { Pages } from './collections/Pages'
 import { Settings } from './collections/Settings'
-import { Categories } from './collections/Categories'
+import { Users } from './collections/Users'
+import { migrations } from './migrations'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -42,7 +42,9 @@ export default buildConfig({
   db: sqliteAdapter({
     prodMigrations: migrations,
     client: {
-      url: 'file:./database/wiki.db',
+      url: 'libsql://alaria-captaincrouton89.aws-us-east-1.turso.io',
+      authToken: process.env.TURSO_AUTH_TOKEN,
+      // url: 'file:./database/wiki.db',
     },
   }),
   sharp,
