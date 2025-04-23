@@ -9,11 +9,6 @@ export default function Toolbar() {
                         Login as Administrator
                     </Link>
                 </li>
-                <li className="pl-3">
-                    <Link href="https://github.com/ThijmenGThN/Wiki" target="_blank">
-                        Star this project on GitHub
-                    </Link>
-                </li>
             </ul>
         </div>
     )
